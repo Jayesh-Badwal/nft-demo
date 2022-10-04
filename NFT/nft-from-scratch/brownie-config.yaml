@@ -1,0 +1,37 @@
+dependencies:
+  - OpenZeppelin/openzeppelin-contracts@3.4.0
+  - smartcontractkit/chainlink-brownie-contracts@1.0.2
+compiler:
+  solc:
+    remappings:
+      - "@openzeppelin=OpenZeppelin/openzeppelin-contracts@3.4.0"
+      - "@chainlink=smartcontractkit/chainlink-brownie-contracts@1.0.2"
+dotenv: .env
+networks:
+  default: development
+  development:
+    host: http://127.0.0.1
+    persist: false
+    reverting_tx_gas_limit: 6721975
+    test_rpc:
+      cmd: ganache-cli
+      port: 7545
+      gas_limit: 6721975
+      accounts: 10
+      evm_version: petersburg
+      mnemonic: brownie
+  goerli:
+    host: https://goerli.infura.io/v3/0a944baa7fce461ca32f29217a875018
+    vrf_coordinator: '0x2bce784e69d2Ff36c71edcB9F88358dB0DfB55b4'
+    link_token: '0x326C977E6efc84E512bB9C30f76E30c160eD06FB'
+    keyhash: '0x0476f9a745b61ea5c0ab224d3a6e4c99f0b02fce4da01143a4f70aa80ae76e8a'
+    fee: 100000000000000000
+    oracle: '0xCC79157eb46F5624204f47AB42b3906cAA40eaB7'
+    eth_usd_price_feed: '0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e'
+    jobId: '6d1bfe27e7034b1d87b5270556b17277'
+    # eth_usd_price_feed: '0x8A753747A1Fa494EC906cE90E9f37563A8AF630e'  
+    mumbai:
+    eth_usd_price_feed: '0x0715A7794a1dc8e42615F059dD6e406A6594651A'
+wallets:
+  from_key: ${PRIVATE_KEY}
+  from_mnemonic: ${MNEMONIC}
